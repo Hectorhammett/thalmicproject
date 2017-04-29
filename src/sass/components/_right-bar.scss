@@ -1,0 +1,10 @@
+.right-bar{
+    background-color: $right-bar-bg-color;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    width: $right-bar-width;
+    bottom: 0;
+    border-left: 1px solid $border-color;
+    padding: $base-padding;
+}

@@ -1,0 +1,20 @@
+.events-list{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-top: $base-padding-top;
+
+    .event{
+        padding: 10px;
+        background: #fff;
+        margin-bottom: 10px;
+        border-radius: $base-border-radius;
+        transition: all 0.25s ease;
+        cursor: pointer;
+
+        &:hover{
+            background: $hover-color;
+            color: #fff;
+        }
+    }
+}

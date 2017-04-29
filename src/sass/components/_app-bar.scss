@@ -1,0 +1,23 @@
+.app-bar{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: $app-bar-height;
+    background-color: $app-bar-bg-color;
+    padding: $base-padding;
+    font-family: $header-font;
+    color: $app-bar-font-color;
+    display: block;
+
+    .logo{
+        margin-top: 32px;
+    }
+
+    h1{
+        display: inline-block;
+        margin-top: -4px;
+        vertical-align: middle;
+        margin-left: 15px;
+    }
+}
