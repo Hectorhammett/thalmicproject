@@ -15,7 +15,7 @@ class EventsContainer extends Component {
 
     render() {
         console.log(this.props);
-        const { events, loading, error, errorMessage, loadEvents, selectEvent } = this.props;
+        const { events, loading, error, errorMessage, loadEvents, selectEvent, selectedEvent } = this.props;
         return (
             <EventsList 
                 events={ events }
@@ -24,6 +24,7 @@ class EventsContainer extends Component {
                 errorMessage={ errorMessage }
                 loadEvents = { loadEvents }
                 selectEvent = { selectEvent }
+                selectedEvent = { selectedEvent }
             />
         );
     }

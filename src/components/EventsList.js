@@ -3,18 +3,23 @@ import React, {Component} from 'react';
 /* This event element is only used in conjuction with the list, that's why they're on the same file */
 class Event extends Component {
     render() {
-        const { event, selectEvent, index } = this.props;
+        console.log(this.props);
+        const { event, selectEvent, index, active } = this.props;
         return (
-            <div className="event" key={event.id} onClick={ () => { selectEvent(index) } }>{event.title}</div>
+            <div className={"event " + ( active ? 'active' : "" )} key={event.id} onClick={ () => { selectEvent(index) } }>{event.title}</div>
         );
     }
 }
 
 class EventsList extends Component {
     renderList(){
-        const {events, selectEvent} = this.props;
+        const { events, selectEvent, selectedEvent } = this.props;
         return events.map((event, index) => {
-            return <Event event={event} selectEvent={selectEvent} key={ event.id } index={ index }/>
+            let active = ( selectedEvent === null ) ? false         :
+                         ( selectedEvent.id === event.id ) ? true   : 
+                         false;
+
+            return <Event event={event} selectEvent={selectEvent} key={ event.id } index={ index } active={ active }/>
         })
     }
 
@@ -31,7 +36,6 @@ class EventsList extends Component {
     }
 
     render() {
-        console.log(this.props);
         return this.renderView();
     }
 }

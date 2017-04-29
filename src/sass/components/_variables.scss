@@ -1,15 +1,18 @@
+@import "mixins/shadow";
+
 /* Colors */
-$primary-color: #6FCBDC;
+$primary-color: #237e8f;
 $warning-color: #FFE66D;
 $danger-color: #FF6B6B;
 $font-color: #292F36;
 
-$hover-color: darken($primary-color,30);
-
 $gray-base: #000;
-$gray: lighten($gray-base,33%);
+$gray: lighten($gray-base,80%);
 $gray-light: lighten($gray-base, 85%);
 $gray-lighter: lighten($gray-base,93.5%);
+
+/* Body */
+$body-bg-color: $gray-lighter;
 
 /* fonts */
 $primary-font: 'Droid Sans', sans-serif;
@@ -19,16 +22,33 @@ $font-size: 15px;
 /* padding*/
 $base-padding: 0px 15px;
 $base-padding-top: 15px;
+$base-padding-bottom: 15px;
+$base-padding-left: 15px;
+$base-padding-right: 15px;
+
+$symmetrical-padding: $base-padding-top;
 
 /* app bar */
 $app-bar-height: 100px;
-$app-bar-bg-color: darken($primary-color,30);
+$app-bar-bg-color: $primary-color;
 $app-bar-font-color: #fff;
 
 /* Right Bar */
-$right-bar-bg-color: $gray-lighter;
+$right-bar-bg-color: $gray-light;
 $right-bar-width: 230px;
 
 /* Borders */
-$border-color: $gray-light;
+$border-color: $gray;
 $base-border-radius: 5px;
+
+/* Panels */
+$panel-bg-color: #fff;
+
+/* Events List */
+$event-bg-color: #fff;
+$event-font-color: $font-color;
+$event-hover-bg-color: $gray-lighter;
+$event-hover-font-color: $font-color;
+$event-active-bg-color: $primary-color;
+$event-active-font-color: #fff;
+                

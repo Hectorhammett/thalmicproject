@@ -1,0 +1,16 @@
+
+.panel{
+    background: $panel-bg-color;
+    border-radius: $base-border-radius;
+    padding: $symmetrical-padding;
+    @include box-shadow(10px);
+
+    *:first-child{
+        margin-top: 0;
+    }
+
+    *:last-child{
+        margin-bottom: 0;
+    }
+
+}

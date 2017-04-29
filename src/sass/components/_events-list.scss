@@ -6,15 +6,20 @@
 
     .event{
         padding: 10px;
-        background: #fff;
+        background: $event-bg-color;
         margin-bottom: 10px;
         border-radius: $base-border-radius;
         transition: all 0.25s ease;
         cursor: pointer;
+        color: $event-font-color;
 
         &:hover{
-            background: $hover-color;
-            color: #fff;
+            background: $event-hover-bg-color;
+        }
+
+        &.active{
+            background: $event-active-bg-color;
+            color: $event-active-font-color;
         }
     }
 }
