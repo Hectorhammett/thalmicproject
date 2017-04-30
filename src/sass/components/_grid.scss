@@ -3,6 +3,7 @@
     min-width: 100%;
     @include flex;
     @include flex-wrap(wrap);
+    margin: $row-base-margin;
 
     &:after{
         content: "\A";

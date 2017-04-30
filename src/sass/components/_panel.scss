@@ -5,6 +5,15 @@
 
     @include box-shadow(10px);
 
+    .panel-header{
+        padding: $symmetrical-padding;
+        border-bottom: $base-border;
+
+        h1{
+            margin: $panel-header-title-margin;
+        }
+    }
+
     .panel-body{
         padding: $symmetrical-padding;
         

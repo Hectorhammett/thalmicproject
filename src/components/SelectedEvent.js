@@ -9,14 +9,34 @@ class SelectedEvent extends Component {
         console.log(this.props.event);
         return (
             <div className="panel">
+                <div className="panel-header">
+                    <h1>{ event.title }</h1>
+                </div>
                 <div className="panel-body">
                     <div className="row">
-                        <div className="col-sm-4">
-                            <img src={NoThumbnail} />
+                        <div className="col-sm-4 text-center-xs">
+                            <img src={NoThumbnail} className="img-responsive event-thumbnail"/>
                         </div>
                         <div className="col-sm-8">
-                            <h1>Event Title</h1>
-                            <p>{ event.title }</p>
+                            <p>
+                                <h3>Service Id:</h3>
+                                { event.serviceId }                         
+                            </p>
+                            <p>
+                                <h3>Service Id:</h3>
+                                { event.timestamp }                         
+                            </p>
+                            <p>
+                                <h3>Service Id:</h3>
+                                { event.data }                         
+                            </p>
+                            <p>
+                                <button className="btn btn-danger">Delete Event</button>
+                            </p>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-sm-12">
                         </div>
                     </div>
                 </div>
