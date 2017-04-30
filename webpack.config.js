@@ -1,6 +1,7 @@
 let path = require('path');
 module.exports = {
     context: path.resolve(__dirname, 'src'),
+    devtool: 'source-map',
     entry: {
         index: ["babel-polyfill",'./index.js']
     },
@@ -21,7 +22,17 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loader: 'style-loader!css-loader!sass-loader'
+                use: [{
+                    loader: "style-loader"
+                }, {
+                    loader: "css-loader", options: {
+                        sourceMap: true
+                    }
+                }, {
+                    loader: "sass-loader", options: {
+                        sourceMap: true
+                    }
+                }],
             },
             {
                 test: /\.(ttf|woff2|woff|png|svg|jpeg|jpg|eot)$/,

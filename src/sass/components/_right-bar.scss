@@ -8,12 +8,42 @@
     border-left: 1px solid $border-color;
     padding: $base-padding;
     z-index: 0;
-    overflow-y: auto;
 
     @media #{$phone-screens}{
         &{
             display: none;
         }
+    }
+
+    .open-arrow{
+        position: absolute;
+        width:25px;
+        height:30px;
+        left: -25px; 
+        top: 15px;   
+        background-color: $right-bar-bg-color;
+        border-left: $base-border;
+        border-bottom: $base-border;
+        border-top: $base-border;
+        border-radius: $base-border-radius;
+        cursor: pointer;
+
+        &:before{
+            position: absolute;
+            font-family: FontAwesome;
+            content: "\f054";
+            top: 7px;
+            left: 7px;
+        }
+    }
+
+    .content-wrapper{
+        position: relative;
+        height: 100%;
+        margin-left: -$base-margin;
+        margin-right: -$base-margin;
+        padding: $base-padding;
+        overflow-y: auto;
     }
 
 }

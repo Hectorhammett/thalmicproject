@@ -5,7 +5,10 @@ class RightBar extends Component {
         let { children } = this.props;
         return (
             <div className="right-bar">
-                { children }
+                <div className="open-arrow"></div>
+                <div className="content-wrapper">
+                    { children }
+                </div>
             </div>
         );
     }
