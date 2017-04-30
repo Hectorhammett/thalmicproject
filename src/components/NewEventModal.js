@@ -43,6 +43,7 @@ class NewEventModal extends Component {
     render() {
         const { type, icon, title, data, disabled } = this.state;
         const { savingError, saving, savingErrorMessage } = this.props;
+
         let alert = null;
         if( savingError )
             alert = <div className="alert alert-danger">
@@ -67,7 +68,7 @@ class NewEventModal extends Component {
                     <textarea value={ data } onChange={ this.handleOnChange.bind(this,"data") }></textarea>
                 </div>
                 <div className="form-group">
-                    <button className="btn btn-primary" onClick={ this.handleSaveNewEvent.bind(this) } disabled={disabled}>Create new Event</button>
+                    <button className="btn btn-primary" onClick={ this.handleSaveNewEvent.bind(this) } disabled={ disabled || saving }>{ ( saving ) ? "Saving the event" : "Create new Event" }</button>
                 </div>
                 { alert }
             </div>

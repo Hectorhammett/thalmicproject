@@ -7,7 +7,7 @@ const SET_OF_MODALS = {
         title: "Create New Event",
         body: NewEventModal,
         store: "events",
-        props: ["saveNewEvent","savingError","savingErrorMessage"]
+        props: ["saveNewEvent","savingError","savingErrorMessage", "saving"]
     }
 };
 
