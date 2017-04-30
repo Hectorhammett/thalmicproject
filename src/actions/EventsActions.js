@@ -46,3 +46,34 @@ export function newEvent(){
     }
 }
 
+export function saveNewEvent(newEvent){
+    return function(dispatch){
+        dispatch(savingNewEvent());
+        axios.post(`${root}/events`,newEvent).then((response) => {
+            dispatch(savedNewEvent());
+        })
+        .catch((err) => {
+            dispatch(errorSavingNewEvent(err.toString()));
+        })
+    }
+}
+
+function savingNewEvent(){
+    return {
+        type: "SAVING_NEW_EVENT"
+    }
+}
+
+function errorSavingNewEvent(err){
+    return{
+        type: "ERROR_SAVING_NEW_EVENT",
+        payload: err
+    }
+}
+
+function savedNewEvent(){
+    return {
+        type: "SAVED_NEW_EVENT"
+    }
+}
+

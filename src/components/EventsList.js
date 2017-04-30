@@ -33,7 +33,7 @@ class EventsList extends Component {
         let list = <p>No Events Loaded</p>;
         if( events.length > 0 )
             list = <div className="events-list">
-                <Event onClick={ newEvent }>
+                <Event onClick={ () => { newEvent("newEvent") } }>
                     + Add Event
                 </Event>
                 { this.renderList() }

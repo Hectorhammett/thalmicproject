@@ -2,8 +2,13 @@ import React, {Component} from 'react';
 
 import NewEventModal from './NewEventModal';
 
-const ARRAY_OF_MODALS = {
-    NewEventModal
+const SET_OF_MODALS = {
+    newEvent: {
+        title: "Create New Event",
+        body: NewEventModal,
+        store: "events",
+        props: ["saveNewEvent","savingError","savingErrorMessage"]
+    }
 };
 
 class ModalBody extends Component {
@@ -37,6 +42,18 @@ class Modal extends Component {
         this.setState(state);
     }
 
+    gatherProps(modal){
+        if(modal === undefined)
+            return {};
+        
+        let props = {};
+        for(let prop of modal.props){
+            props[prop] = this.props[prop];
+        };
+        
+        return props;
+    }
+
     closeModal(event){
         if(!event.target.className.split(" ").includes("modal-backdrop"))
             return;
@@ -48,12 +65,17 @@ class Modal extends Component {
     }
 
     render() {
-        const { open } = this.props
+        const { open, modal, actions } = this.props
         const { fade } = this.state;
+
+        const filteredModal = SET_OF_MODALS[modal]
+        const SpecificModal = ( filteredModal ) ? filteredModal.body : () => {return <div></div>};
+        const modalProps = this.gatherProps(filteredModal);
+        
         return (
             <div className={ "modal-backdrop" + ( open ? " open" : "" ) + ( fade ? " fade" : "") } onClick={ this.closeModal.bind(this) }>
-                <ModalBody header="Create New Event">
-                    <NewEventModal />
+                <ModalBody header={ (filteredModal) ? filteredModal.title : null }>
+                    <SpecificModal {...modalProps}/>
                 </ModalBody>
             </div>
         );

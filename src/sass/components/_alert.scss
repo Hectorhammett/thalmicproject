@@ -1,0 +1,18 @@
+.alert{
+    position: relative;
+    width: 100%;
+    padding: $symmetrical-padding;
+    box-sizing: border-box;
+    border-radius: $base-border-radius;
+}
+
+.alert-primary{
+    @include generate-alert($primary-color, $font-color-inverse);
+}
+
+.alert-danger{
+    @include generate-alert($danger-color, $font-color);
+}
+.alert-danger{
+    @include generate-alert($danger-color, $font-color-inverse);
+}

@@ -1,6 +1,8 @@
 @mixin generate-button($bg-color, $font-color){
     background-color: $bg-color;
     color: $font-color;
+    border: none;
+    transition: background-color 0.25s ease;
 
     &:hover,
     &:focus{
@@ -9,5 +11,10 @@
 
     &:active{
         background-color: darken( $bg-color, 7% );
+    }
+
+    &:disabled{
+        background-color: lighten(desaturate($bg-color, 30%),50%);
+        cursor: no-drop;
     }
 }

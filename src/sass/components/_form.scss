@@ -15,19 +15,13 @@
         }
 
         input{
-            width: $form-control-width;
-            border: $form-control-border;
-            border-radius: $base-border-radius;
+            @include input;
             height: $form-control-height;
-            box-sizing: border-box;
-            padding: $base-padding;
-            border-color: $border-color;
-            transition: border-color 0.25s ease;
+        }
 
-            &:focus{
-                outline: none;
-                border-color: darken($border-color,50%);
-            }
+        textarea{
+            @include input;
+            padding: $symmetrical-padding;
         }
     }
 }

@@ -1,0 +1,14 @@
+@mixin input{
+    width: $form-control-width;
+    border: $form-control-border;
+    border-radius: $base-border-radius;
+    box-sizing: border-box;
+    padding: $base-padding;
+    border-color: $border-color;
+    transition: border-color 0.25s ease;
+
+    &:focus{
+        outline: none;
+        border-color: darken($border-color,50%);
+    }
+}

@@ -1,10 +1,12 @@
-let initialState = {
+const initialState = {
     events: [],
     loading: false,
     error: false,
     errorMessage: null,
     selectedEvent: null,
-    newEvent: false
+    saving: false,
+    savingError: false,
+    savingErrorMessage: null
 }
 
 export default (state = initialState, action) => {
@@ -27,10 +29,34 @@ export default (state = initialState, action) => {
             };
         case "SELECTED_EVENT":
             return {...state, selectedEvent: state.events[action.payload]};
-        case "OPEN_MODAL_EVENTS":
-            return {...state, newEvent: true }
-        case "CLOSE_MODAL_EVENTS":
-            return {...state, newEvent: false }
+        case "SAVING_NEW_EVENT":
+            return {
+                ...state,
+                saving: true,
+                savingError: false,
+                savingErrorMessange: null
+            };
+        case "ERROR_SAVING_NEW_EVENT":
+            return{
+                ...state,
+                saving: false,
+                savingError: true,
+                savingErrorMessage: action.payload
+            }
+        case "SAVED_NEW_EVENT":
+            return {
+                ...state,
+                saving: false,
+                savingError: false,
+                savingErrorMessange: null,
+            }
+        case "CLOSE_MODAL":
+            return {
+                ...state,
+                saving: false,
+                savingError: false,
+                savingErrorMessange: null,
+            }
     }
     return state;
 }
