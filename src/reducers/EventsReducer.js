@@ -3,7 +3,8 @@ let initialState = {
     loading: false,
     error: false,
     errorMessage: null,
-    selectedEvent: null
+    selectedEvent: null,
+    newEvent: false
 }
 
 export default (state = initialState, action) => {
@@ -26,6 +27,10 @@ export default (state = initialState, action) => {
             };
         case "SELECTED_EVENT":
             return {...state, selectedEvent: state.events[action.payload]};
+        case "OPEN_MODAL_EVENTS":
+            return {...state, newEvent: true }
+        case "CLOSE_MODAL_EVENTS":
+            return {...state, newEvent: false }
     }
     return state;
 }

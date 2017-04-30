@@ -10,6 +10,7 @@
     color: $app-bar-font-color;
     display: block;
     @include box-shadow();
+    z-index: 10;
 
     .logo{
         margin-top: 32px;

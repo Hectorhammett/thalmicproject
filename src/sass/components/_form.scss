@@ -1,0 +1,33 @@
+.form-container{
+    @include flex();
+    @include flex-direction(column);
+
+    .form-group{
+        margin-bottom: $base-margin;
+
+        label{
+            margin-bottom: $form-label-bottom-margin;
+            display: block;
+            &:after{
+                content:"\A";
+                white-space: pre;
+            }
+        }
+
+        input{
+            width: $form-control-width;
+            border: $form-control-border;
+            border-radius: $base-border-radius;
+            height: $form-control-height;
+            box-sizing: border-box;
+            padding: $base-padding;
+            border-color: $border-color;
+            transition: border-color 0.25s ease;
+
+            &:focus{
+                outline: none;
+                border-color: darken($border-color,50%);
+            }
+        }
+    }
+}

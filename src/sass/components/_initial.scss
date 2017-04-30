@@ -1,5 +1,6 @@
 html{
     font-size: 10px;
+    height:100%;
 }
 
 body {
@@ -8,5 +9,7 @@ body {
   color: $font-color;
   width: 100%;
   margin: 0;
-  background: $body-bg-color
+  background: $body-bg-color;
+  height: 100%;
+  overflow: hidden;
 }

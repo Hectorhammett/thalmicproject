@@ -1,0 +1,46 @@
+.modal-backdrop{
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    height: 0;
+    z-index: 20;
+    transition: background-color 0.25s ease;
+    overflow-y: auto;
+
+    &.open{
+        min-height: 100%;
+    }
+
+    &.fade{
+        background-color: rgba($modal-backdrop-bg-color, $modal-backdrop-opacity);
+    }
+
+    .modal-body{
+        position: relative;
+        margin: 0 auto;
+        margin-top: -50px;
+        width: $modal-body-width;
+        background: $modal-body-bg-color;
+        min-height: $modal-body-min-height;
+        opacity: 0;
+        border-radius: $base-border-radius;
+        @include box-shadow();
+        transition: all 0.25s ease;
+
+        .modal-header{
+            position: relative;
+            padding: $base-padding;
+            border-bottom: $base-border;
+            overflow: auto;
+        }
+
+        .modal-content{
+            padding: $symmetrical-padding;
+        }
+    }
+
+    &.fade .modal-body{
+        opacity: 1;
+        margin-top: $modal-body-margin-top;
+    }
+}

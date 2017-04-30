@@ -1,10 +1,13 @@
 @import "mixins/shadow";
+@import "mixins/flex";
+@import "mixins/button";
 
 /* Colors */
 $primary-color: #237e8f;
 $warning-color: #FFE66D;
 $danger-color: #FF6B6B;
 $font-color: #292F36;
+$font-color-inverse: #fff;
 
 $gray-base: #000;
 $gray: lighten($gray-base,80%);
@@ -28,6 +31,9 @@ $base-padding-right: 15px;
 
 $symmetrical-padding: $base-padding-top;
 
+/* Margins */
+$base-margin: 15px;
+
 /* app bar */
 $app-bar-height: 100px;
 $app-bar-bg-color: $primary-color;
@@ -40,6 +46,7 @@ $right-bar-width: 230px;
 /* Borders */
 $border-color: $gray;
 $base-border-radius: 5px;
+$base-border: 1px solid $border-color;
 
 /* Panels */
 $panel-bg-color: #fff;
@@ -51,4 +58,21 @@ $event-hover-bg-color: $gray-lighter;
 $event-hover-font-color: $font-color;
 $event-active-bg-color: $primary-color;
 $event-active-font-color: #fff;
-                
+
+/* modals */
+$modal-backdrop-bg-color: #000;
+$modal-backdrop-opacity: 0.35;       
+$modal-body-bg-color: #fff;
+$modal-body-width: 750px;
+$modal-body-margin-top: 50px;
+$modal-body-min-height: 250px;    
+
+/* forms */
+$form-group-bottom-margin: $base-margin - 10;
+$form-label-bottom-margin: $base-margin - 10;
+$form-control-width: 100%;
+$form-control-border: $base-border;
+$form-control-height: 35px;
+
+/* Buttons */
+$button-padding: 10px 15px;

@@ -34,10 +34,15 @@ export function loadEvents(){
 }
 
 export function selectEvent(index){
-    console.log(index);
     return {
         type: "SELECTED_EVENT",
         payload: index
+    }
+}
+
+export function newEvent(){
+    return {
+        type: "OPEN_MODAL_EVENTS"
     }
 }
 

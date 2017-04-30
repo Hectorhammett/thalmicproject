@@ -2,8 +2,10 @@ import { combineReducers } from 'redux';
 
 /* Import all the needed reducers */
 import EventsReducer from './EventsReducer';
+import ModalReducer from './ModalReducer';
 
 export default combineReducers({
-    events: EventsReducer
+    events: EventsReducer,
+    modal: ModalReducer
 });
 

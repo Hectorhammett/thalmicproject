@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 /* Containers */
 import EventsContainer from '../containers/EventsContainer';
 import SelectedEventContainer from '../containers/SelectedEventContainer';
+import ModalContainer from '../containers/ModalContainer';
 
 /* Components */
 import AppBar from './AppBar';
@@ -13,6 +14,7 @@ class App extends Component {
     render() {
         return (
             <div>
+                <ModalContainer />
                 <AppBar />
                 <MainContainer >
                     <SelectedEventContainer />

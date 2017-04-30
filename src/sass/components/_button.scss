@@ -1,0 +1,26 @@
+.btn {
+    border: $base-border;
+    border-radius: $base-border-radius;
+    padding: $button-padding;
+    cursor: pointer;
+
+    &:focus{
+        outline: none;
+    }
+
+    &:active{
+        outline: none;
+    }
+}
+
+.btn-primary{
+    @include generate-button($primary-color, $font-color-inverse);
+}
+
+.btn-warning{
+    @include generate-button($warning-color, $font-color);
+}
+
+.btn-danger{
+    @include generate-button($danger-color, $font-color-inverse);
+}

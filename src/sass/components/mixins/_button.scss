@@ -1,0 +1,13 @@
+@mixin generate-button($bg-color, $font-color){
+    background-color: $bg-color;
+    color: $font-color;
+
+    &:hover,
+    &:focus{
+        background-color: darken( $bg-color, 3%);
+    }
+
+    &:active{
+        background-color: darken( $bg-color, 7% );
+    }
+}
