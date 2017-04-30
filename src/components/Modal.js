@@ -1,13 +1,18 @@
 import React, {Component} from 'react';
 
 import NewEventModal from './NewEventModal';
+import DeleteEventModal from './DeleteEventModal';
 
 const SET_OF_MODALS = {
     newEvent: {
         title: "Create New Event",
         body: NewEventModal,
-        store: "events",
         props: ["saveNewEvent","savingError","savingErrorMessage", "saving"]
+    },
+    deleteEvent: {
+        title: "Delete Event",
+        body: DeleteEventModal,
+        props: ["eventToDelete","cancelDeleteEvent", "confirmDeleteEvent", "deletingEvent", "deletingEventError", "deletingEventErrorMessage", "selectedEventIndex"]
     }
 };
 
@@ -38,10 +43,12 @@ class Modal extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if(nextProps.open)
-            this.openModal();
-        else
-            this.closeModal(true);
+        if(!nextProps.lock){
+            if(nextProps.open)
+                this.openModal();
+            else
+                this.closeModal(true);
+        }
     }
 
     gatherProps(modal){
@@ -58,7 +65,7 @@ class Modal extends Component {
 
     closeModal(bypass,event){
         console.log(bypass)
-        if(!bypass && !event.target.className.split(" ").includes("modal-backdrop"))
+        if((!bypass && !event.target.className.split(" ").includes("modal-backdrop")) || this.props.lock)
             return;
         let state = { ...this.state };
         const { closeModal } = this.props;

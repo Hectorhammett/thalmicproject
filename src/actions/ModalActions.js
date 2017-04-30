@@ -11,3 +11,15 @@ export function closeModal(){
         payload: null
     }
 }
+
+export function lockModal(){
+    return {
+        type: "LOCK_MODAL"
+    }
+}
+
+export function unlockModal(){
+    return {
+        type: "UNLOCK_MODAL"
+    }
+}

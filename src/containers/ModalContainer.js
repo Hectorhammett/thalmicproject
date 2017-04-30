@@ -11,7 +11,7 @@ const MODAL_COMPONENTS = {
 
 /* Actions */
 import { closeModal } from '../actions/ModalActions';
-import { saveNewEvent } from '../actions/EventsActions';
+import { saveNewEvent, cancelDeleteEvent, confirmDeleteEvent } from '../actions/EventsActions';
 
 class ModalContainer extends Component {
     render() {
@@ -31,7 +31,9 @@ function mapStateToProps(store){
 function mapDispatchToProps(dispatch){
     return bindActionCreators({ 
         closeModal,
-        saveNewEvent
+        saveNewEvent,
+        cancelDeleteEvent,
+        confirmDeleteEvent
      }, dispatch);
 }
 

@@ -20,7 +20,7 @@ class EventsList extends Component {
                          ( selectedEvent.id === event.id ) ? true   : 
                          false;
 
-            return <Event onClick={ () => { selectEvent(index) } } key={ event.id } active={ active }> { event.title } </Event>
+            return <Event onClick={ () => { selectEvent(index) } } key={ event.id } active={ active }> { event.id } </Event>
         })
     }
 

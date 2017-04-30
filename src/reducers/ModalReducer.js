@@ -1,6 +1,7 @@
 const initalState = {
     modal: null,
-    open: false
+    open: false,
+    lock: false
 }
 
 export default (state = initalState, action) => {
@@ -17,6 +18,16 @@ export default (state = initalState, action) => {
                 modal: null,
                 open: false
             };
+        case "LOCK_MODAL":
+            return {
+                ...state,
+                lock: true
+            };
+        case "UNLOCK_MODAL":
+            return {
+                ...state,
+                lock: false
+            }
     }
     return state;
 }

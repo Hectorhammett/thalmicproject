@@ -24,7 +24,7 @@ module.exports = {
                 loader: 'style-loader!css-loader!sass-loader'
             },
             {
-                test: /\.(ttf|woff2|woff|png|svg|jpeg|jpg)$/,
+                test: /\.(ttf|woff2|woff|png|svg|jpeg|jpg|eot)$/,
                 loader: 'file-loader'
             }
         ]

@@ -14,7 +14,8 @@
     }
 
     &:disabled{
-        background-color: lighten(desaturate($bg-color, 30%),50%);
+        background-color: lighten(desaturate($bg-color, 20%),14%);
         cursor: no-drop;
+        color: lighten(desaturate($font-color, 50%),14%)
     }
 }

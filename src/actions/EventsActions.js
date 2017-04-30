@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { closeModal, openModal } from './ModalActions';
+import { closeModal, openModal, lockModal, unlockModal } from './ModalActions';
 
 let root = "https://forgetful-elephant.herokuapp.com";
 
@@ -52,8 +52,10 @@ export function newEvent(){
 export function saveNewEvent(newEvent){
     return function(dispatch){
         dispatch(savingNewEvent());
+        dispatch(lockModal());
         axios.post(`${root}/events`,newEvent).then((response) => {
             dispatch(savedNewEvent(response.data));
+            dispatch(unlockModal());
             dispatch(closeModal());
         })
         .catch((err) => {
@@ -89,9 +91,52 @@ function deleteEventPrep(event){
     }
 }
 
+export function cancelDeleteEvent(){
+    return function(dispatch){
+        dispatch({type:"CANCEL_DELETE_EVENT"});
+        dispatch(closeModal());
+    }
+}
+
 export function removeEvent(event){
     return function(dispatch){
         dispatch(deleteEventPrep(event));
-        dispatch(openModal("newEvent"));
+        dispatch(openModal("deleteEvent"));
+    }
+}
+
+function deletingEvent(){
+    return {
+        type: "DELETING_EVENT"
+    }
+}
+
+function deletedEvent(index){
+    return {
+        type: "DELETED_EVENT",
+        payload: index
+    }
+}
+
+function errorDeletingEvent(err){
+    return {
+        type: "ERROR_DELETING_EVENT",
+        payload: err
+    }
+}
+
+export function confirmDeleteEvent(index,event){
+    return function(dispatch){
+        dispatch(lockModal());
+        dispatch(deletingEvent());
+        axios.delete(`${root}/events/${event.id}`).then((response) => {
+            dispatch(unlockModal());
+            dispatch(closeModal());
+            dispatch(deletedEvent(index));
+        })
+        .catch((err) => {
+            dispatch(errorDeletingEvent(err.toString()));
+            dispatch(unlockModal());
+        })
     }
 }

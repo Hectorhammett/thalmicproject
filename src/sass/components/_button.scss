@@ -1,8 +1,9 @@
 .btn {
-    border: $base-border;
+    border: $button-border;
     border-radius: $base-border-radius;
     padding: $button-padding;
     cursor: pointer;
+    margin: $button-base-margin;
 
     &:focus{
         outline: none;
@@ -11,6 +12,10 @@
     &:active{
         outline: none;
     }
+}
+
+.btn-default{
+    @include generate-button($gray, $font-color);
 }
 
 .btn-primary{

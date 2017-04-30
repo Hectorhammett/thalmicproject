@@ -4,10 +4,14 @@ const initialState = {
     error: false,
     errorMessage: null,
     selectedEvent: null,
+    selectedEventIndex: null,
     saving: false,
     savingError: false,
     savingErrorMessage: null,
-    eventToDelete: null
+    eventToDelete: null,
+    deletingEvent: false,
+    deletingEventError: false,
+    deletingEventErrorMessage: null
 }
 
 export default (state = initialState, action) => {
@@ -29,7 +33,7 @@ export default (state = initialState, action) => {
                 errorMessage: action.payload
             };
         case "SELECTED_EVENT":
-            return {...state, selectedEvent: state.events[action.payload]};
+            return {...state, selectedEvent: state.events[action.payload], selectedEventIndex: action.payload};
         case "SAVING_NEW_EVENT":
             return {
                 ...state,
@@ -60,12 +64,52 @@ export default (state = initialState, action) => {
                 saving: false,
                 savingError: false,
                 savingErrorMessange: null,
+                eventToDelete: null,
+                deletingEventError: false,
+                deletingEventErrorMessage: null
             };
         case "DELETE_EVENT":
             return {
                 ...state,
-                eventToDelete: action.payload
+                eventToDelete: state.events[action.payload]
             };
+        case "CANCEL_DELETE_EVENT":
+            return {
+                ...state,
+                eventToDelete: null,
+                deletingEventError: false,
+                deletingEventErrorMessage: null
+            };
+        case "DELETING_EVENT":
+            return {
+                ...state,
+                deletingEvent: true
+            };
+        case "DELETED_EVENT":
+            const newState =  {
+                ...state,
+                deletingEvent: false,
+                eventToDelete: null,
+                deletingEventError: false,
+                deletingEventErrorMessage: null,
+                selectedEvent: null,
+                selectedEventIndex: null
+            };
+            newState.events.splice(action.payload, 1);
+            return newState;
+        case "ERROR_DELETING_EVENT":
+            return {
+                ...state,
+                deletingEvent: false,
+                deletingEventError: true,
+                deletingEventErrorMessage: action.payload
+            };
+        case "RESET_DELETE_ERROR":
+            return {
+                ...state,
+                deletingEventError: false,
+                deletingEventErrorMessage: null
+            }
     }
     return state;
 }

@@ -4,9 +4,9 @@ import NoThumbnail from '../images/no-thumb.jpg';
 
 class SelectedEvent extends Component {
     render() {
-        let { event, removeEvent } = this.props;
+        let { event, removeEvent, selectedEventIndex } = this.props;
         event.url = "test";
-        
+                
         return (
             <div className="panel">
                 <div className="panel-header">
@@ -31,7 +31,7 @@ class SelectedEvent extends Component {
                                 { event.data }                         
                             </p>
                             <p>
-                                <button className="btn btn-danger" onClick={ () => { removeEvent(event) } } >Delete Event</button>
+                                <button className="btn btn-danger" onClick={ () => { removeEvent(selectedEventIndex) } } >Delete Event</button>
                             </p>
                         </div>
                     </div>
