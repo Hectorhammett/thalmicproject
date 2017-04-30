@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 import EventsContainer from '../containers/EventsContainer';
 import SelectedEventContainer from '../containers/SelectedEventContainer';
 import ModalContainer from '../containers/ModalContainer';
+import RightBarContainer from '../containers/RightBarContainer';
 
 /* Components */
 import AppBar from './AppBar';
@@ -19,9 +20,9 @@ class App extends Component {
                 <MainContainer >
                     <SelectedEventContainer />
                 </MainContainer>
-                <RightBar>
+                <RightBarContainer>
                     <EventsContainer />
-                </RightBar>
+                </RightBarContainer>
             </div>
         );
     }

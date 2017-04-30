@@ -64,7 +64,6 @@ class Modal extends Component {
     }
 
     closeModal(bypass,event){
-        console.log(bypass)
         if((!bypass && !event.target.className.split(" ").includes("modal-backdrop")) || this.props.lock)
             return;
         let state = { ...this.state };

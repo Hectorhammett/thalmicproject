@@ -8,12 +8,8 @@
     border-left: 1px solid $border-color;
     padding: $base-padding;
     z-index: 0;
-
-    @media #{$phone-screens}{
-        &{
-            display: none;
-        }
-    }
+    box-sizing: border-box;
+    transition: right 0.25s ease;
 
     .open-arrow{
         position: absolute;
@@ -27,6 +23,7 @@
         border-top: $base-border;
         border-radius: $base-border-radius;
         cursor: pointer;
+        transition: background-color 0.25s ease, color 0.25s ease;
 
         &:before{
             position: absolute;
@@ -34,6 +31,17 @@
             content: "\f054";
             top: 7px;
             left: 7px;
+        }
+    }
+
+     &.collapsed{
+        right: -$right-bar-width;
+        .open-arrow{
+            background-color: $primary-color;
+            color: $font-color-inverse;
+            &:before{
+                content: "\f053"
+            }
         }
     }
 
