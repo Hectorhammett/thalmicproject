@@ -1,0 +1,13 @@
+.hidden-xs{
+    display: block;
+    @media #{$phone-screens}{
+        display: none;
+    }
+}
+
+.hidden-xs-inline{
+    display: inline-block;
+    @media #{$phone-screens}{
+        display: none;
+    }
+}

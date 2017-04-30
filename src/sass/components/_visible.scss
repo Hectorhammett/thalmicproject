@@ -1,0 +1,8 @@
+.visible-xs-inline{
+    display: none;
+    @media #{$phone-screens}{
+        &{
+            display: inline-block;
+        }
+    }
+}
