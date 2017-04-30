@@ -32,14 +32,16 @@ class Modal extends Component {
         super(props);
         const { open } = this.props;
         this.state = {
-            fade: open
+            fade: open,
+            open: open
         };
     }
 
     componentWillReceiveProps(nextProps) {
-        let state = {...this.state};
-        state.fade = nextProps.open;
-        this.setState(state);
+        if(nextProps.open)
+            this.openModal();
+        else
+            this.closeModal(true);
     }
 
     gatherProps(modal){
@@ -54,26 +56,40 @@ class Modal extends Component {
         return props;
     }
 
-    closeModal(event){
-        if(!event.target.className.split(" ").includes("modal-backdrop"))
+    closeModal(bypass,event){
+        console.log(bypass)
+        if(!bypass && !event.target.className.split(" ").includes("modal-backdrop"))
             return;
         let state = { ...this.state };
         const { closeModal } = this.props;
         state.fade = false;
+        this.setState(state, timeout);
+
+        let timeout = setTimeout(() => { 
+            state.open = false
+            this.setState(state);
+            const { closeModal } = this.props;
+            closeModal();
+        },250);
+    }
+
+    openModal(){
+        let state = { ...this.state };
+        state.open = true;
+        state.fade = true;
         this.setState(state);
-        setTimeout(() => { closeModal() },250);
     }
 
     render() {
-        const { open, modal, actions } = this.props
-        const { fade } = this.state;
+        const { modal, actions } = this.props
+        const { fade, open } = this.state;
 
         const filteredModal = SET_OF_MODALS[modal]
         const SpecificModal = ( filteredModal ) ? filteredModal.body : () => {return <div></div>};
         const modalProps = this.gatherProps(filteredModal);
         
         return (
-            <div className={ "modal-backdrop" + ( open ? " open" : "" ) + ( fade ? " fade" : "") } onClick={ this.closeModal.bind(this) }>
+            <div className={ "modal-backdrop" + ( open ? " open" : "" ) + ( fade ? " fade" : "") } onClick={ this.closeModal.bind(this,false) }>
                 <ModalBody header={ (filteredModal) ? filteredModal.title : null }>
                     <SpecificModal {...modalProps}/>
                 </ModalBody>

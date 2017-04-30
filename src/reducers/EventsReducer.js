@@ -44,11 +44,14 @@ export default (state = initialState, action) => {
                 savingErrorMessage: action.payload
             }
         case "SAVED_NEW_EVENT":
+            let { events } = state;
+            events.push(action.payload);
             return {
                 ...state,
                 saving: false,
                 savingError: false,
                 savingErrorMessange: null,
+                events
             }
         case "CLOSE_MODAL":
             return {

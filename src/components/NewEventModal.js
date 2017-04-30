@@ -1,35 +1,42 @@
 import React, {Component} from 'react';
+import moment from 'moment';
 
 class NewEventModal extends Component {
     constructor(){
         super();
         this.state = {
-            "type": "",
-            "serviceId": "",
-            "icon": "",
-            "timestamp": "",
-            "title": "",
-            "data": "",
+            event: {
+                "type": "",
+                "serviceId": "",
+                "icon": "",
+                "timestamp": "",
+                "title": "",
+                "data": ""
+            },
             "disabled": true
         }
     }
 
     simpleValidation(state){
-        if(state.type === "" || state.icon === "" || state.title === "" || state.data === "")
+         if(state.type === "" || state.icon === "" || state.title === "" || state.data === "")
             return true;
         return false;
     }
 
     handleOnChange(data,event){
-        let state = {...this.state};
-        state[data] = event.target.value;
-        state.disabled = this.simpleValidation(state);
+        let state = { ...this.state };
+        let newEvent = {...this.state.event};
+        newEvent[data] = event.target.value;
+        state.disabled = this.simpleValidation(newEvent);
+        state.event = newEvent;
         this.setState(state);
     }
 
     handleSaveNewEvent(){
         let { saveNewEvent } = this.props;
-        let newEvent = { ...this.state };
+        let newEvent = { ...this.state.event };
+        newEvent.serviceId = Math.random() * 1000000000;
+        newEvent.timestamp = moment();
         saveNewEvent(newEvent);
     }
 

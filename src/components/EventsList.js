@@ -3,9 +3,9 @@ import React, {Component} from 'react';
 /* This event element is only used in conjuction with the list, that's why they're on the same file */
 class Event extends Component {
     render() {
-        const { text, onClick, children, active } = this.props;
+        const { text, onClick, children, active, className } = this.props;
         return (
-            <div className={ "event" + ((active) ? " active" : "") } onClick={ onClick }>{text}
+            <div className={ "event" + ((active) ? " active" : "") + ` ${className}` } onClick={ onClick }>{text}
                 { children }
             </div>
         );
@@ -26,19 +26,24 @@ class EventsList extends Component {
 
     renderView(){
         const { events, loading, error, errorMessage, loadEvents, newEvent } = this.props;
+        
+        let list = [];
+
         if(loading)
             return <p>loading...</p>
         if(error)
             return <p>{ errorMessage.toString() }</p>
-        let list = <p>No Events Loaded</p>;
         if( events.length > 0 )
-            list = <div className="events-list">
+            list = this.renderList()
+
+        return (
+            <div className="events-list">
                 <Event onClick={ () => { newEvent("newEvent") } }>
                     + Add Event
                 </Event>
-                { this.renderList() }
+                { list }
             </div>
-        return list;
+        );
     }
 
     render() {

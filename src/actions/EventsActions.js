@@ -1,5 +1,7 @@
 import axios from 'axios';
-let root = "http://127.0.0.1:3000";
+import { closeModal } from './ModalActions';
+
+let root = "https://forgetful-elephant.herokuapp.com";
 
 function loadingEvents(){
     return {
@@ -24,8 +26,9 @@ function errorLoadingEvents(err){
 export function loadEvents(){
     return function(dispatch){
         dispatch(loadingEvents());
-        axios.get(`${root}/posts`).then((response) => {
+        axios.get(`${root}/events`).then((response) => {
             dispatch(loadedEvents(response.data));
+            dispatch(closeModal());
         })
         .catch((err) => {
             dispatch(errorLoadingEvents(err));
@@ -50,7 +53,8 @@ export function saveNewEvent(newEvent){
     return function(dispatch){
         dispatch(savingNewEvent());
         axios.post(`${root}/events`,newEvent).then((response) => {
-            dispatch(savedNewEvent());
+            dispatch(savedNewEvent(response.data));
+            dispatch(closeModal());
         })
         .catch((err) => {
             dispatch(errorSavingNewEvent(err.toString()));
@@ -71,9 +75,10 @@ function errorSavingNewEvent(err){
     }
 }
 
-function savedNewEvent(){
+function savedNewEvent(newEvent){
     return {
-        type: "SAVED_NEW_EVENT"
+        type: "SAVED_NEW_EVENT",
+        payload: newEvent
     }
 }
 
