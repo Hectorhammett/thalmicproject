@@ -6,7 +6,8 @@ const initialState = {
     selectedEvent: null,
     saving: false,
     savingError: false,
-    savingErrorMessage: null
+    savingErrorMessage: null,
+    eventToDelete: null
 }
 
 export default (state = initialState, action) => {
@@ -59,7 +60,12 @@ export default (state = initialState, action) => {
                 saving: false,
                 savingError: false,
                 savingErrorMessange: null,
-            }
+            };
+        case "DELETE_EVENT":
+            return {
+                ...state,
+                eventToDelete: action.payload
+            };
     }
     return state;
 }

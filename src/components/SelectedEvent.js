@@ -4,9 +4,9 @@ import NoThumbnail from '../images/no-thumb.jpg';
 
 class SelectedEvent extends Component {
     render() {
-        let { event } = this.props;
+        let { event, removeEvent } = this.props;
         event.url = "test";
-        console.log(this.props.event);
+        
         return (
             <div className="panel">
                 <div className="panel-header">
@@ -23,7 +23,7 @@ class SelectedEvent extends Component {
                                 { event.serviceId }                         
                             </p>
                             <p>
-                                <h3>Service Id:</h3>
+                                <h3>Timestamp:</h3>
                                 { event.timestamp }                         
                             </p>
                             <p>
@@ -31,12 +31,8 @@ class SelectedEvent extends Component {
                                 { event.data }                         
                             </p>
                             <p>
-                                <button className="btn btn-danger">Delete Event</button>
+                                <button className="btn btn-danger" onClick={ () => { removeEvent(event) } } >Delete Event</button>
                             </p>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-sm-12">
                         </div>
                     </div>
                 </div>

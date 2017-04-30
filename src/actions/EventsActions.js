@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { closeModal } from './ModalActions';
+import { closeModal, openModal } from './ModalActions';
 
 let root = "https://forgetful-elephant.herokuapp.com";
 
@@ -82,3 +82,16 @@ function savedNewEvent(newEvent){
     }
 }
 
+function deleteEventPrep(event){
+    return{
+        type: "DELETE_EVENT",
+        payload: event
+    }
+}
+
+export function removeEvent(event){
+    return function(dispatch){
+        dispatch(deleteEventPrep(event));
+        dispatch(openModal("newEvent"));
+    }
+}
