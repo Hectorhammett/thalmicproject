@@ -1,0 +1,64 @@
+@mixin generate-columns(){
+    @for $i from 1 through 12{
+        /* Small Screens (Phone) */
+        .col-xs-#{$i}{
+             @include generate-width($i);
+             padding: $base-padding;
+             word-break: break-word;
+             & .row{
+                 margin: $row-base-margin;
+             }
+        }
+
+        /* small screens */
+        .col-sm-#{$i} {
+            @include generate-width($i);
+            padding: $base-padding;
+            word-break: break-word;
+            & .row{
+                margin: $row-base-margin;
+            }
+            @media #{$phone-screens}{
+                &{
+                    width: 100%;
+                }
+            }
+        }
+
+        /* Medium Screens */
+        .col-md-#{$i} {
+            @include generate-width($i);
+            padding: $base-padding;
+            word-break: break-word;
+            & .row{
+                margin: $row-base-margin;
+            }
+            @media #{$medium-screens}{
+                &{
+                    width: 100%;
+                }
+            }
+        }
+
+        /*large screens*/
+        .col-lg-#{$i} {
+            @include generate-width($i);
+            padding: $base-padding;
+            word-break: break-word;
+            & .row{
+                margin: $row-base-margin;
+            }
+            @media #{$large-screens}{
+                &{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@mixin generate-width($division){
+     width: floor(((100 * $division)/12)) + %;
+     border: 1px dashed red;
+     box-sizing: border-box;
+}

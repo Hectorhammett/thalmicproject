@@ -25,3 +25,15 @@
 	-ms-flex-direction: $value;
 	flex-direction: $value;
 }
+
+
+@mixin flex-wrap($value: nowrap) {
+	-webkit-flex-wrap: $value;
+	-moz-flex-wrap: $value;
+	@if $value == nowrap {
+		-ms-flex-wrap: none;
+	} @else { 
+		-ms-flex-wrap: $value; 
+	}
+	flex-wrap: $value;
+}

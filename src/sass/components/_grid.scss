@@ -1,0 +1,12 @@
+.row{
+    position: relative;
+    min-width: 100%;
+    @include flex;
+    @include flex-wrap(wrap);
+
+    &:after{
+        content: "\A";
+        white-space: pre;
+    } 
+    @include generate-columns();
+}

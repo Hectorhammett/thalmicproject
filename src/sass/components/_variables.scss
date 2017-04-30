@@ -3,6 +3,16 @@
 @import "mixins/button";
 @import "mixins/input";
 @import "mixins/alert";
+@import "mixins/cols";
+/* Break Points */
+$phone-screens: "only screen and (max-width : 768px)";
+$small-screens: "only screen and (max-width : 991px)";
+$medium-screens: "only screen and (max-width : 992px)";
+$large-screens: "only screen and (max-width : 1200px)";
+
+/* grid */
+$base-margin: -15px;
+$row-base-margin: 0 $base-margin;
 
 /* Colors */
 $primary-color: #237e8f;

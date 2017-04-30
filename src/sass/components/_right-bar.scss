@@ -9,4 +9,11 @@
     padding: $base-padding;
     z-index: 0;
     overflow-y: auto;
+
+    @media #{$phone-screens}{
+        &{
+            display: none;
+        }
+    }
+
 }
