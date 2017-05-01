@@ -51,8 +51,6 @@ export function newEvent(){
 
 export function saveNewEvent(newEvent){
     return function(dispatch){
-        dispatch(savingNewEvent());
-        dispatch(lockModal());
         axios.post(`${root}/events`,newEvent).then((response) => {
             dispatch(savedNewEvent(response.data));
             dispatch(unlockModal());
@@ -60,21 +58,26 @@ export function saveNewEvent(newEvent){
         })
         .catch((err) => {
             dispatch(errorSavingNewEvent(err.toString()));
-            dispatch(unlockModal());
         })
     }
 }
 
-function savingNewEvent(){
-    return {
-        type: "SAVING_NEW_EVENT"
+export function savingNewEvent(){
+    return function(dispatch){
+        dispatch(lockModal());
+        dispatch({
+            type: "SAVING_NEW_EVENT"
+        });
     }
 }
 
-function errorSavingNewEvent(err){
-    return{
-        type: "ERROR_SAVING_NEW_EVENT",
-        payload: err
+export function errorSavingNewEvent(err){
+    return function(dispatch){
+        dispatch({
+            type: "ERROR_SAVING_NEW_EVENT",
+            payload: err
+        });
+        dispatch(unlockModal());
     }
 }
 
@@ -139,5 +142,14 @@ export function confirmDeleteEvent(index,event){
             dispatch(errorDeletingEvent(err.toString()));
             dispatch(unlockModal());
         })
+    }
+}
+
+export function verifyImageUrl(){
+    return function(dispatch){
+        dispatch(lockModal());
+        dispatch( {
+            type: "VERIFYING_IMAGE_URL"
+        });
     }
 }

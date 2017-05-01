@@ -12,7 +12,7 @@ import Modal from '../components/Modal';
 
 /* Actions */
 import { closeModal } from '../actions/ModalActions';
-import { saveNewEvent, cancelDeleteEvent, confirmDeleteEvent } from '../actions/EventsActions';
+import { saveNewEvent, cancelDeleteEvent, confirmDeleteEvent, savingNewEvent, errorSavingNewEvent } from '../actions/EventsActions';
 
 class ModalContainer extends Component {
     render() {
@@ -34,7 +34,9 @@ function mapDispatchToProps(dispatch){
         closeModal,
         saveNewEvent,
         cancelDeleteEvent,
-        confirmDeleteEvent
+        confirmDeleteEvent,
+        savingNewEvent,
+        errorSavingNewEvent,
      }, dispatch);
 }
 

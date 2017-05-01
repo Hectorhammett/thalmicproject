@@ -24,7 +24,7 @@ const SET_OF_MODALS = {
     newEvent: {
         title: "Create New Event",
         body: NewEventModal,
-        props: ["saveNewEvent","savingError","savingErrorMessage", "saving"]
+        props: ["saveNewEvent","savingError","savingErrorMessage", "savingNewEvent", "errorSavingNewEvent", "saving"]
     },
     deleteEvent: {
         title: "Delete Event",

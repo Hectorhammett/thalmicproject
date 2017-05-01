@@ -60,16 +60,51 @@ class NewEventModal extends Component {
      * Save new event method
      */
     handleSaveNewEvent(){
-        let { saveNewEvent } = this.props;
+        let { saveNewEvent, savingNewEvent, errorSavingNewEvent } = this.props;
         let newEvent = { ...this.state.event };
-        newEvent.serviceId = Math.random() * 1000000000;
-        newEvent.timestamp = moment();
-        saveNewEvent(newEvent);
+
+        savingNewEvent();
+
+        this.verifyUrl(newEvent.icon).then((message) => {
+            newEvent.serviceId = Math.random() * 1000000000;
+            newEvent.timestamp = moment();
+            saveNewEvent(newEvent);
+        })
+        .catch((err) => {
+            errorSavingNewEvent(err);
+        })
+    }
+
+    /**
+     * Function to verify if the given URL is a valid image or not.
+     * @param {string} url Url for the image to verify
+     */
+    verifyUrl(url){
+        return new Promise((resolve, reject) => {
+            let timeout = 5000;
+            let timer;
+            let img = new Image();
+
+            img.onerror = img.onabort = () => {
+                clearTimeout(timer);
+                reject("The url given is not a valid image");
+            }
+
+            img.onload = () => {
+                clearTimeout(timer);
+                resolve("success");
+            }
+
+            timer = setTimeout(() => {
+                reject("The url didn't respond on time.");
+            }, timeout);
+            img.src = url;
+        })
     }
 
     render() {
         const { type, icon, title, data, disabled } = this.state;
-        const { savingError, saving, savingErrorMessage } = this.props;
+        const { savingError, saving, savingErrorMessage, verifyingImageUrl } = this.props;
 
         let alert = null;
         if( savingError )
@@ -98,7 +133,7 @@ class NewEventModal extends Component {
                     <textarea value={ data } onChange={ this.handleOnChange.bind(this,"data") }></textarea>
                 </div>
                 <div className="form-group">
-                    <button className="btn btn-primary" onClick={ this.handleSaveNewEvent.bind(this) } disabled={ disabled || saving }>{ ( saving ) ? "Saving the event" : "Create new Event" }</button>
+                    <button className="btn btn-primary" onClick={ this.handleSaveNewEvent.bind(this) } disabled={ disabled || saving || verifyingImageUrl }>{ ( saving ) ? "Saving the event" : "Create new Event" }</button>
                     { (saving) ? <Spinner inline={true}/> : null }
                 </div>
                 { alert }
