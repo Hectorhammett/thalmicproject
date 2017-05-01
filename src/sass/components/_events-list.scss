@@ -12,6 +12,14 @@
         transition: all 0.25s ease;
         cursor: pointer;
         color: $event-font-color;
+        max-height: $event-max-height;
+        box-sizing: border-box;
+
+        .ellipsis{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
         &:hover{
             background: $event-hover-bg-color;
@@ -20,6 +28,14 @@
         &.active{
             background: $event-active-bg-color;
             color: $event-active-font-color;
+        }
+
+        .event-thumb{
+            width: 36px;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
         }
     }
 }

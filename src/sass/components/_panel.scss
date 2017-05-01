@@ -2,6 +2,7 @@
 .panel{
     background: $panel-bg-color;
     border-radius: $base-border-radius;
+    margin-bottom: $base-margin;
 
     @include box-shadow(10px);
 

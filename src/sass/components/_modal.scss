@@ -38,6 +38,12 @@
             padding: $base-padding;
             border-bottom: $base-border;
             overflow: auto;
+
+            .close-button{
+                float: right;
+                color: darken($gray,30%);
+                cursor: pointer;
+            }
         }
 
         .modal-content{

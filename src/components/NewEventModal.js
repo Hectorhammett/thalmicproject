@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import moment from 'moment';
 
+/* Components */
+import Spinner from "./Spinner";
+
 class NewEventModal extends Component {
     constructor(){
         super();
@@ -69,6 +72,7 @@ class NewEventModal extends Component {
                 </div>
                 <div className="form-group">
                     <button className="btn btn-primary" onClick={ this.handleSaveNewEvent.bind(this) } disabled={ disabled || saving }>{ ( saving ) ? "Saving the event" : "Create new Event" }</button>
+                    { (saving) ? <Spinner inline={true}/> : null }
                 </div>
                 { alert }
             </div>

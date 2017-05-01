@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Spinner from "./Spinner";
 
 class componentName extends Component {
     render() {
@@ -27,10 +28,15 @@ class componentName extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-sm-12 text-center delete-modal-buttons" style={{marginTop: "15px"}}>
-                        <button className="btn btn-danger" onClick={ () => { confirmDeleteEvent(selectedEventIndex, eventToDelete) }} disabled={ deletingEvent }>Yes, Delete</button>
-                        <button className="btn btn-default" onClick={ cancelDeleteEvent } disabled={ deletingEvent }>No, don't delete</button>
-                    </div>
+                    {
+                        (deletingEvent) ?
+                            <Spinner />
+                        :
+                            <div className="col-sm-12 text-center delete-modal-buttons" style={{marginTop: "15px"}}>
+                                <button className="btn btn-danger" onClick={ () => { confirmDeleteEvent(selectedEventIndex, eventToDelete) }} disabled={ deletingEvent }>Yes, Delete</button>
+                                <button className="btn btn-default" onClick={ cancelDeleteEvent } disabled={ deletingEvent }>No, don't delete</button>
+                            </div>
+                    }
                 </div>
                 { error }
             </div>

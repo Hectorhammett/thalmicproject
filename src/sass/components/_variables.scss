@@ -53,7 +53,7 @@ $app-bar-font-color: #fff;
 
 /* Right Bar */
 $right-bar-bg-color: $gray-light;
-$right-bar-width: 250px;
+$right-bar-width: 300px;
 
 /* Borders */
 $border-color: $gray;
@@ -71,6 +71,7 @@ $event-hover-bg-color: $gray-lighter;
 $event-hover-font-color: $font-color;
 $event-active-bg-color: $primary-color;
 $event-active-font-color: #fff;
+$event-max-height: 60px;
 
 /* modals */
 $modal-backdrop-bg-color: #000;

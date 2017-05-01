@@ -18,11 +18,11 @@ const SET_OF_MODALS = {
 
 class ModalBody extends Component {
     render(){
-        const { header, children } = this.props;
+        const { header, children, closeModal } = this.props;
         return (
             <div className="modal-body">
                 <div className="modal-header">
-                    <h1>{ header }</h1>
+                    <h1>{ header }<i className="fa fa-times close-button" aria-hidden="true" onClick={ closeModal }></i></h1>
                 </div>
                 <div className="modal-content">
                     { children }
@@ -96,7 +96,7 @@ class Modal extends Component {
         
         return (
             <div className={ "modal-backdrop" + ( open ? " open" : "" ) + ( fade ? " fade" : "") } onClick={ this.closeModal.bind(this,false) }>
-                <ModalBody header={ (filteredModal) ? filteredModal.title : null }>
+                <ModalBody header={ (filteredModal) ? filteredModal.title : null } closeModal={ this.closeModal.bind(this) }>
                     <SpecificModal {...modalProps}/>
                 </ModalBody>
             </div>

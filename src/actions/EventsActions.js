@@ -60,6 +60,7 @@ export function saveNewEvent(newEvent){
         })
         .catch((err) => {
             dispatch(errorSavingNewEvent(err.toString()));
+            dispatch(unlockModal());
         })
     }
 }

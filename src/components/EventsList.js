@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import { PHONE_SCREENS_BREAKPOINT } from '../constants';
+import NoThumbnail from '../images/no-thumb.jpg';
+
+/* Components */
+import Spinner from './Spinner';
 
 /* This event element is only used in conjuction with the list, that's why they're on the same file */
 class Event extends Component {
@@ -28,7 +32,25 @@ class EventsList extends Component {
                          ( selectedEvent.id === event.id ) ? true   : 
                          false;
 
-            return <Event onClick={ () => { selectEvent(index) } } key={ event.id } active={ active } collapseRightBar={ collapseRightBar }> { event.id } </Event>
+            return <Event onClick={ () => { selectEvent(index) } } key={ event.id } active={ active } collapseRightBar={ collapseRightBar }>
+                <div className="row">
+                    <div className="col-xs-2">
+                        <img className="img-responsive event-thumb" src={ ( event.icon  ? event.icon : NoThumbnail ) } />
+                    </div>
+                    <div className="col-xs-10">
+                        <div className="row">
+                            <div className="col-xs-12 ellipsis">
+                                <strong>{ event.title } </strong>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-xs-12 ellipsis">
+                                { event.type } 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Event>
         })
     }
 
@@ -38,7 +60,7 @@ class EventsList extends Component {
         let list = [];
 
         if(loading)
-            return <p>loading...</p>
+            return <Spinner />
         if(error)
             return <p>{ errorMessage.toString() }</p>
         if( events.length > 0 )

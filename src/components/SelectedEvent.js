@@ -15,9 +15,13 @@ class SelectedEvent extends Component {
                 <div className="panel-body">
                     <div className="row">
                         <div className="col-sm-4 text-center-xs">
-                            <img src={NoThumbnail} className="img-responsive event-thumbnail"/>
+                            <img src={( event.icon ? event.icon : NoThumbnail )} className="img-responsive event-thumbnail"/>
                         </div>
                         <div className="col-sm-8">
+                            <p>
+                                <h3>Event Type:</h3>
+                                { event.type }                         
+                            </p>
                             <p>
                                 <h3>Service Id:</h3>
                                 { event.serviceId }                         
@@ -28,7 +32,7 @@ class SelectedEvent extends Component {
                             </p>
                             <p>
                                 <h3>Service Id:</h3>
-                                { event.data }                         
+                                { event.data }                      
                             </p>
                             <p>
                                 <button className="btn btn-danger" onClick={ () => { removeEvent(selectedEventIndex) } } >Delete Event</button>
