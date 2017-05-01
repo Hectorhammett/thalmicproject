@@ -52,16 +52,16 @@ class NewEventModal extends Component {
         return (
             <div className="form-container">
                 <div className="form-group">
+                    <label> Title of the event </label>
+                    <input type="text" value={ title } onChange={ this.handleOnChange.bind(this,"title") }/>
+                </div>
+                <div className="form-group">
                     <label> Type of Event </label>
                     <input type="text" value={ type } onChange={ this.handleOnChange.bind(this,"type") }/>
                 </div>
                 <div className="form-group">
                     <label> Icon URL </label>
                     <input type="text" value={ icon } onChange={ this.handleOnChange.bind(this,"icon") }/>
-                </div>
-                <div className="form-group">
-                    <label> Title of the event </label>
-                    <input type="text" value={ title } onChange={ this.handleOnChange.bind(this,"title") }/>
                 </div>
                 <div className="form-group">
                     <label> Data of the Event </label>

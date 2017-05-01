@@ -5,6 +5,7 @@ import EventsContainer from '../containers/EventsContainer';
 import SelectedEventContainer from '../containers/SelectedEventContainer';
 import ModalContainer from '../containers/ModalContainer';
 import RightBarContainer from '../containers/RightBarContainer';
+import MainPanelContainer from '../containers/MainPanelContainer';
 
 /* Components */
 import AppBar from './AppBar';
@@ -17,9 +18,9 @@ class App extends Component {
             <div>
                 <ModalContainer />
                 <AppBar />
-                <MainContainer >
+                <MainPanelContainer>
                     <SelectedEventContainer />
-                </MainContainer>
+                </MainPanelContainer>
                 <RightBarContainer>
                     <EventsContainer />
                 </RightBarContainer>

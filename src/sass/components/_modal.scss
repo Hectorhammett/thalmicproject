@@ -27,6 +27,12 @@
         @include box-shadow();
         transition: all 0.25s ease;
 
+        @media #{$phone-screens}{
+            &{
+                width:90%
+            }
+        }
+
         .modal-header{
             position: relative;
             padding: $base-padding;

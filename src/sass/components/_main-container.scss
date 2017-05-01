@@ -7,8 +7,15 @@
     padding: $base-padding;
     padding-top: $base-padding-top;
     overflow-y: auto;
+    transition: right 0.25s ease;
+
+    &.extended{
+        right: 0;
+    }
 
     @media #{$phone-screens}{
-        right: 0;
+        &{
+            right: 0;
+        }
     }
 }

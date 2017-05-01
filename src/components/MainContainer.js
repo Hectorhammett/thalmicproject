@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 
 class MainContainer extends Component {
     render() {
-        let { children } = this.props;
+        let { children, rightbarCollapsed } = this.props;
+        console.log("Props", this.props )
         return (
-            <div className="main-container">
+            <div className={ "main-container" + ( rightbarCollapsed ? " extended" : "" ) }>
                 { children }
             </div>
         );
