@@ -30,4 +30,20 @@
         vertical-align: $app-bar-title-vertical-align;
         margin-left: $base-margin;
     }
+
+    @media #{$phone-screens}{
+        &{
+            text-align: center;
+
+            .logo{
+                margin-top: $base-margin;
+                margin-bottom: 0;
+            }
+
+            & h1{
+                display: block;
+                margin-top: 5px;
+            }
+        }
+    }
 }
