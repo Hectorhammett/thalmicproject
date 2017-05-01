@@ -45,7 +45,7 @@ class componentName extends Component {
                         <Spinner />
                         :
                         <div className="col-sm-12 text-center delete-modal-buttons" style={{marginTop: "15px"}}>
-                            <button className="btn btn-danger" onClick={ () => { confirmDeleteEvent(selectedEventIndex, eventToDelete) }} disabled={ deletingEvent }>Yes, Delete</button>
+                            <button className="btn btn-danger" onClick={ () => { confirmDeleteEvent(selectedEventIndex, eventToDelete) }} disabled={ deletingEvent }>Yes, delete</button>
                             <button className="btn btn-default" onClick={ cancelDeleteEvent } disabled={ deletingEvent }>No, don't delete</button>
                         </div>
                     }
