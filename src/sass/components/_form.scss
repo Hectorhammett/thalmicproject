@@ -1,3 +1,13 @@
+/**
+* Forms SCSS. This styles the inputs utilized during the app
+* Not all inputs are being stylized but the SCSS
+* is ready to do so
+*
+* @author  Hector Mendoza
+* @version 1.0
+* @since   2017-04-30 
+*/
+
 .form-container{
     @include flex();
     @include flex-direction(column);

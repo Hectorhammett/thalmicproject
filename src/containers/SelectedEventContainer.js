@@ -1,13 +1,18 @@
+/**
+ * Selected Event Container
+ * Container used to wire the store to the Selected Event Component
+ */
+
+import { bindActionCreators } from 'redux';
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 /* Components */
 import SelectedEvent from '../components/selectedEvent';
 
 /* Actions */
-import { openModal } from '../actions/ModalActions';
 import { removeEvent } from '../actions/EventsActions';
+import { openModal } from '../actions/ModalActions';
 
 class SelectedEventContainer extends Component {
     render() {

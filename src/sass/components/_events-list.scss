@@ -1,19 +1,38 @@
+/**
+* A container for all the events on the right bar of the app
+* This components is not completelly reusable perse
+* but it's a custom element for the curren project
+*
+* @author  Hector Mendoza
+* @version 1.0
+* @since   2017-04-30 
+*/
+
 .events-list{
     position: relative;
-    display: flex;
-    flex-direction: column;
     padding-top: $base-padding-top;
+    /* display: flex */
+    @include flex();
+    // flex-direction: column;
+    @include flex-direction(column);
 
     .event{
         padding: 10px;
         background: $event-bg-color;
         margin-bottom: 10px;
-        border-radius: $base-border-radius;
-        transition: all 0.25s ease;
         cursor: pointer;
         color: $event-font-color;
         max-height: $event-max-height;
-        box-sizing: border-box;
+        // border-radius: $base-border-radius;
+        @include border-radius($base-border-radius);
+        // transition: all 0.25s ease;
+        @include transition(background 0.25s ease, transform 0.05s ease);
+        // box-sizing: border-box;
+        @include box-sizing(border-box);
+
+        &:active{
+             @include transform(scale(0.97));
+        }
 
         .ellipsis{
             white-space: nowrap;
@@ -35,7 +54,8 @@
             height: auto;
             position: absolute;
             top: 50%;
-            transform: translateY(-50%);
+            // transform: translateY(-50%);
+            @include transform(translateY(-50%));
         }
     }
 }

@@ -1,3 +1,13 @@
+/**
+ * Selected Event Component
+ * This component is used to show the selected event clicked by the user.
+ * This component is utilized as a children inside the Main Container component
+ * 
+ * @author Hector Mendoza
+ * @version 1.0
+ * @since 2017/5/1
+ */
+
 import React, {Component} from 'react';
 
 import NoThumbnail from '../images/no-thumb.jpg';

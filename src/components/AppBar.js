@@ -1,3 +1,12 @@
+/**
+* App Bar component.
+* This component is the top part of the screen, displaying the app name
+*
+* @author  Hector Mendoza
+* @version 1.0
+* @since   2017-04-30 
+*/
+
 import React, {Component} from 'react';
 import Logo from '../images/thlabs.svg';
 import Badge from '../images/th-badge.png'

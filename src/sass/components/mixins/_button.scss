@@ -1,8 +1,17 @@
+/**
+* Mixin to generate multiple colors of the button element
+*
+* @author  Hector Mendoza
+* @version 1.0
+* @since   2017-04-30 
+*/
+
+@import "transition";
 @mixin generate-button($bg-color, $font-color){
     background-color: $bg-color;
     color: $font-color;
-    border: none;
-    transition: background-color 0.25s ease;
+    border: $button-border;
+    @include transition(background-color 0.25s ease);
 
     &:hover,
     &:focus{
@@ -14,8 +23,8 @@
     }
 
     &:disabled{
-        background-color: lighten(desaturate($bg-color, 20%),14%);
+        background-color: transparentize($bg-color, 0.5);
         cursor: no-drop;
-        color: lighten(desaturate($font-color, 50%),14%)
+        color: transparentize($font-color, 0.5);
     }
 }

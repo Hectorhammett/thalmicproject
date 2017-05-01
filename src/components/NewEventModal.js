@@ -1,3 +1,12 @@
+/**
+* New Event Modal
+* Modal Body shown to the user when a new event is going to be stored to the DB 
+* 
+* @author  Hector Mendoza
+* @version 1.0
+* @since   2017-04-30 
+*/
+
 import React, {Component} from 'react';
 import moment from 'moment';
 
@@ -20,12 +29,24 @@ class NewEventModal extends Component {
         }
     }
 
+    /**
+     * This function is a simple validation for the new event object. This only checks if the user has typed on all the mandatory
+     * inputs on the modal. If it doesnt, it disables the submit button
+     * 
+     * @param {object} state State with all the properties of the new event 
+     */
     simpleValidation(state){
          if(state.type === "" || state.icon === "" || state.title === "" || state.data === "")
             return true;
         return false;
     }
 
+    /**
+     * Function utilized for databinding. When the user types on the inputs, this is fired by onChange event
+     * 
+     * @param {string} data The field to update 
+     * @param {object} event The event Object
+     */
     handleOnChange(data,event){
         let state = { ...this.state };
         let newEvent = {...this.state.event};
@@ -35,6 +56,9 @@ class NewEventModal extends Component {
         this.setState(state);
     }
 
+    /**
+     * Save new event method
+     */
     handleSaveNewEvent(){
         let { saveNewEvent } = this.props;
         let newEvent = { ...this.state.event };
@@ -54,6 +78,9 @@ class NewEventModal extends Component {
                     </div>
         return (
             <div className="form-container">
+                <div className="form-group">
+                    *All inputs are required
+                </div>
                 <div className="form-group">
                     <label> Title of the event </label>
                     <input type="text" value={ title } onChange={ this.handleOnChange.bind(this,"title") }/>

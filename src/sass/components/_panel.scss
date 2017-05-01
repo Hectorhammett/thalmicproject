@@ -1,10 +1,18 @@
+/**
+* Panel Component. This component is usually called like
+* card on certain frameworks
+*
+* @author  Hector Mendoza
+* @version 1.0
+* @since   2017-04-30 
+*/
 
 .panel{
     background: $panel-bg-color;
-    border-radius: $base-border-radius;
     margin-bottom: $base-margin;
-
-    @include box-shadow(10px);
+    // border-radius: $base-border-radius;
+    @include border-radius($base-border-radius);
+    @include box-shadow();
 
     .panel-header{
         padding: $symmetrical-padding;

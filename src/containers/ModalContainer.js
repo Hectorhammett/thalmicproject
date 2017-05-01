@@ -1,13 +1,14 @@
+/**
+ * Modal Container
+ * This container is used to wire the store to the Modal Component
+ */
+
+import { bindActionCreators } from 'redux';
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 /* Components */
 import Modal from '../components/Modal';
-
-const MODAL_COMPONENTS = {
-
-}
 
 /* Actions */
 import { closeModal } from '../actions/ModalActions';

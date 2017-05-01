@@ -1,10 +1,18 @@
+/**
+* Alert Panels with different contextual colors.
+*
+* @author  Hector Mendoza
+* @version 1.0
+* @since   2017-04-30 
+*/
+
 .alert{
     position: relative;
     width: 100%;
     padding: $symmetrical-padding;
-    box-sizing: border-box;
-    border-radius: $base-border-radius;
     margin-top:$base-margin;
+    @include box-sizing(border-box);
+    @include border-radius($base-border-radius);
 }
 
 .alert-primary{

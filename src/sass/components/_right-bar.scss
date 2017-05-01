@@ -1,3 +1,12 @@
+/**
+* Right bar element. This bar is to the right side of the screen, this one is
+* reusable throught the application.
+*
+* @author  Hector Mendoza
+* @version 1.0
+* @since   2017-04-30 
+*/
+
 .right-bar{
     background-color: $right-bar-bg-color;
     position: absolute;
@@ -5,11 +14,13 @@
     top: 100px;
     width: $right-bar-width;
     bottom: 0;
-    border-left: 1px solid $border-color;
+    border-left: $base-border;
     padding: $base-padding;
     z-index: 0;
-    box-sizing: border-box;
-    transition: right 0.25s ease;
+    // box-sizing: border-box;
+    @include box-sizing(border-box);
+    // transition: right 0.25s ease;
+    @include transition(right 0.25s ease);
 
     .open-arrow{
         position: absolute;
@@ -23,7 +34,8 @@
         border-top: $base-border;
         border-radius: $base-border-radius;
         cursor: pointer;
-        transition: background-color 0.25s ease, color 0.25s ease;
+        // transition: background-color 0.25s ease, color 0.25s ease;
+        @include transition(background-color 0.25s ease, color 0.25s ease);
 
         &:before{
             position: absolute;

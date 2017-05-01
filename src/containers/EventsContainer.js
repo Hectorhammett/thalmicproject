@@ -1,16 +1,29 @@
+/**
+ * Events Container
+ * Container utilized to wire the EventsList component to the EventsList reducer
+ * 
+ * @author Hector Mendoza
+ * @version 1.0
+ * @since 5/1/2017
+ */
+
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 /* Actions */
 import { loadEvents, selectEvent } from '../actions/EventsActions';
-import { openModal } from '../actions/ModalActions';
 import { collapseRightBar } from '../actions/RightBarActions';
+import { openModal } from '../actions/ModalActions'
 
 /* components */
 import EventsList from '../components/EventsList';
 
 class EventsContainer extends Component {
+
+    /**
+     * Method utilized to load the events from the DB when it's mounted
+     */
     componentDidMount() {
         this.props.loadEvents();
     }

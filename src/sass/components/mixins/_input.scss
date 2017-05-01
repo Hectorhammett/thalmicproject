@@ -1,3 +1,13 @@
+/**
+* Mixin to creat all the input sass although, i need to add all the resting inputs like text-area
+*
+* @author  Hector Mendoza
+* @version 1.0
+* @since   2017-04-30 
+*/
+
+@import 'transition';
+
 @mixin input{
     width: $form-control-width;
     border: $form-control-border;
@@ -5,7 +15,8 @@
     box-sizing: border-box;
     padding: $base-padding;
     border-color: $border-color;
-    transition: border-color 0.25s ease;
+    // transition: border-color 0.25s ease;
+    @include transition(border-color 0.25s ease);
 
     &:focus{
         outline: none;

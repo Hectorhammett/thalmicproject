@@ -1,5 +1,10 @@
-import React, {Component} from 'react';
+/**
+ * Right Bar Container
+ * Container used to wire the Right Bar to the Store
+ */
+
 import { bindActionCreators } from 'redux';
+import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
 /* Actions */

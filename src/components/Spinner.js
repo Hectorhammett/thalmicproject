@@ -1,3 +1,8 @@
+/**
+ * Spinner Component
+ * Reutilizable spinner component for loading purposes.
+ */
+
 import React, {Component} from 'react';
 import '../css/spinner.css';
 

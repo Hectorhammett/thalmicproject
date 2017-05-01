@@ -1,3 +1,11 @@
+/**
+* Bar on top of the page to display the title of the app.
+*
+* @author  Hector Mendoza
+* @version 1.0
+* @since   2017-04-30 
+*/
+
 .app-bar{
     position: fixed;
     left: 0;
@@ -18,8 +26,8 @@
 
     h1{
         display: inline-block;
-        margin-top: -4px;
-        vertical-align: middle;
-        margin-left: 15px;
+        margin-top: -$app-bar-title-base-margin;
+        vertical-align: $app-bar-title-vertical-align;
+        margin-left: $base-margin;
     }
 }

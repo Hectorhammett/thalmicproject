@@ -1,3 +1,12 @@
+/**
+* Main Container for the page.
+* This is where all the information is displayed
+*
+* @author  Hector Mendoza
+* @version 1.0
+* @since   2017-04-30 
+*/
+
 .main-container{
     position: absolute;
     top: $app-bar-height;
@@ -7,7 +16,8 @@
     padding: $base-padding;
     padding-top: $base-padding-top;
     overflow-y: auto;
-    transition: right 0.25s ease;
+    // transition: right 0.25s ease;
+    @include transition(right 0.25s ease);
 
     &.extended{
         right: 0;

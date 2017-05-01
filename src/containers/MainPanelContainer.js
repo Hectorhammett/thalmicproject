@@ -1,11 +1,14 @@
+/**
+ * Main Panel Container
+ * Container used to wire the Store to the Main Panel Component
+ */
+
+import { bindActionCreators } from 'redux';
 import React, {Component} from 'react';
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import { connect } from 'react-redux';
 
 /* Components */
-import MainContainer from "../components/MainContainer";
-
-/* Actions */
+import MainContainer from '../components/MainContainer';
 
 class MainPanelContainer extends Component {
     render() {

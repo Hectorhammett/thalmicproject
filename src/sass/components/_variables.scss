@@ -1,9 +1,21 @@
+/**
+* All the variables, components and mixins used throughout the application
+*
+* @author  Hector Mendoza
+* @version 1.0
+* @since   2017-04-30 
+*/
+
 @import "mixins/shadow";
 @import "mixins/flex";
 @import "mixins/button";
 @import "mixins/input";
 @import "mixins/alert";
 @import "mixins/cols";
+@import "mixins/border-radius";
+@import "mixins/box-sizing";
+@import "mixins/transform";
+
 /* Break Points */
 $phone-screens: "only screen and (max-width : 768px)";
 $small-screens: "only screen and (max-width : 991px)";
@@ -50,6 +62,8 @@ $base-margin: 15px;
 $app-bar-height: 100px;
 $app-bar-bg-color: $primary-color;
 $app-bar-font-color: #fff;
+$app-bar-title-base-margin: 4px;
+$app-bar-title-vertical-align: middle;
 
 /* Right Bar */
 $right-bar-bg-color: $gray-light;
@@ -79,7 +93,8 @@ $modal-backdrop-opacity: 0.35;
 $modal-body-bg-color: #fff;
 $modal-body-width: 750px;
 $modal-body-margin-top: 50px;
-$modal-body-min-height: 250px;    
+$modal-body-min-height: 250px;  
+$modal-phone-screen-width: 90%;  
 
 /* forms */
 $form-group-bottom-margin: $base-margin - 10;
@@ -92,3 +107,6 @@ $form-control-height: 35px;
 $button-padding: 10px 15px;
 $button-border: none;
 $button-base-margin: 0 5px 0 0;
+
+/* shadows */
+$base-box-shadow:  0 4px 5px 0 rgba(0,0,0,0.05), 0 1px 10px 0 rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.05);
