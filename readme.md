@@ -1,4 +1,4 @@
-#![Thalmic Labs Take Home Challenge](/src/images/thlabs.jpg?raw-true)
+#![Thalmic Labs Take Home Challenge](/src/images/thlabsblack.jpg?raw-true)
 
 This is a project for the Take Home Challenge for Thalmic Labs Interview. This project is made with React, Redux and Sass technologies.
 
