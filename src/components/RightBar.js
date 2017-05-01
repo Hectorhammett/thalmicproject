@@ -1,23 +1,23 @@
 import React, {Component} from 'react';
-
-const PHONE_SCREENS_BREAKPOINT = 769;
-
+import { PHONE_SCREENS_BREAKPOINT } from '../constants';
+console.log(PHONE_SCREENS_BREAKPOINT);
+ 
 class RightBar extends Component {
     componentWillMount() {
         const { collapseRightBar, rightbarCollapsed } = this.props;
-        if(window.innerWidth < 769 && !rightbarCollapsed) {
+        console.log(PHONE_SCREENS_BREAKPOINT);
+        if(window.innerWidth < PHONE_SCREENS_BREAKPOINT) {
             collapseRightBar();
         }
     }
     
-
     componentDidMount() {
         window.addEventListener('resize', this.collapseRightBarBreakPoint.bind(this));
     }
 
     collapseRightBarBreakPoint() {
         const { collapseRightBar, rightbarCollapsed } = this.props;
-        if(window.innerWidth < 769 && !rightbarCollapsed) {
+        if(window.innerWidth < PHONE_SCREENS_BREAKPOINT && !rightbarCollapsed) {
             collapseRightBar();
         }
     }

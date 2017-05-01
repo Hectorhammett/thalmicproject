@@ -1,0 +1,1 @@
+export const PHONE_SCREENS_BREAKPOINT = 769;

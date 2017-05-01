@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 /* Actions */
 import { loadEvents, selectEvent } from '../actions/EventsActions';
 import { openModal } from '../actions/ModalActions';
+import { collapseRightBar } from '../actions/RightBarActions';
 
 /* components */
 import EventsList from '../components/EventsList';
@@ -15,7 +16,7 @@ class EventsContainer extends Component {
     }
 
     render() {
-        const { events, loading, error, errorMessage, loadEvents, selectEvent, selectedEvent, openModal } = this.props;
+        const { events, loading, error, errorMessage, loadEvents, selectEvent, selectedEvent, openModal, collapseRightBar } = this.props;
         return (
             <EventsList 
                 events={ events }
@@ -26,6 +27,7 @@ class EventsContainer extends Component {
                 selectEvent = { selectEvent }
                 selectedEvent = { selectedEvent }
                 newEvent = { openModal }
+                collapseRightBar = { collapseRightBar }
             />
         );
     }
@@ -36,7 +38,7 @@ function mapStateToProps(store){
 }
 
 function bindDispatchToProps(dispatch){
-    return bindActionCreators({loadEvents, selectEvent, openModal},dispatch);
+    return bindActionCreators({loadEvents, selectEvent, openModal, collapseRightBar},dispatch);
 }
 
 export default connect(mapStateToProps,bindDispatchToProps)(EventsContainer);
