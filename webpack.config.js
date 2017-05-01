@@ -6,7 +6,7 @@ module.exports = {
         index: ["babel-polyfill",'./index.js']
     },
     output: {
-        path: __dirname + '/dist',
+        path: __dirname + '/dist/javascript',
         filename: '[name].bundle.js'
     },
     devServer: {
