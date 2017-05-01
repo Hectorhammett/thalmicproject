@@ -22,10 +22,6 @@ $small-screens: "only screen and (max-width : 991px)";
 $medium-screens: "only screen and (max-width : 992px)";
 $large-screens: "only screen and (max-width : 1200px)";
 
-/* grid */
-$base-margin: -15px;
-$row-base-margin: 0 $base-margin;
-
 /* Colors */
 $primary-color: #237e8f;
 $warning-color: #FFE66D;
@@ -110,3 +106,6 @@ $button-base-margin: 0 5px 0 0;
 
 /* shadows */
 $base-box-shadow:  0 4px 5px 0 rgba(0,0,0,0.05), 0 1px 10px 0 rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.05);
+
+/* Grid */
+$row-base-margin: 0 -#{$base-margin};

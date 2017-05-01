@@ -12,6 +12,7 @@
     padding: $button-padding;
     cursor: pointer;
     margin: $button-base-margin;
+    font-size: $font-size;
 
     &:focus{
         outline: none;
